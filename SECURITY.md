@@ -34,3 +34,16 @@ HttpForge is a **local-first** API client:
 - Sensitive values are masked in the UI by default
 
 For full details, see [httpforge.com/security.html](https://httpforge.com/security.html).
+
+## Website Security Headers
+
+The httpforge.com website uses `_headers` to serve:
+
+- `Content-Security-Policy`
+- `Strict-Transport-Security`
+- `X-Frame-Options`
+- `X-Content-Type-Options`
+- `Referrer-Policy`
+- `Permissions-Policy`
+
+CSP and Referrer-Policy are also set via HTML meta tags on every page as defense in depth.

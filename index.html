@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <meta name="theme-color" content="#0f172a">
   <title>HttpForge — Modern Open-Source API Client for Developers</title>
   <meta name="description" content="HttpForge is a modern Privacy First, open-source API client built for professional developers. Design, test, and manage REST API requests on Windows and VS Code.">
@@ -180,19 +182,21 @@
           <h3>Secure by Default</h3>
           <p>Credentials and API keys are encrypted locally on your device. Your secrets never leave your machine.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card feature-card--planned">
+          <span class="status-badge status-badge--planned">Planned Feature</span>
           <div class="feature-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 00-4-4H5a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
           </div>
           <h3>Team Collaboration</h3>
-          <p>Share collections with your team, sync environments across projects, and maintain consistency at scale.</p>
+          <p>Share collections with your team and sync environments across projects. Planned for a future release — see our <a href="roadmap.html">roadmap</a>.</p>
         </div>
-        <div class="feature-card">
+        <div class="feature-card feature-card--enterprise">
+          <span class="status-badge status-badge--enterprise">Enterprise Edition</span>
           <div class="feature-icon">
             <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 00-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 012-3.95A12.88 12.88 0 0122 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 01-4 2z"/></svg>
           </div>
           <h3>Enterprise-Ready Scale</h3>
-          <p>From solo side projects to large engineering teams — HttpForge adapts to your API workflow as you grow.</p>
+          <p>Advanced team controls, audit logging, and organization-wide policies — designed for large engineering teams in a future Enterprise Edition.</p>
         </div>
       </div>
     </div>
@@ -252,12 +256,21 @@
           <h3>Local Development</h3>
           <p>Build and test requests against local servers with full control over headers, authentication, and payload data.</p>
         </div>
-        <div class="deploy-card">
+        <div class="deploy-card deploy-card--planned">
+          <span class="status-badge status-badge--planned">Planned Feature</span>
+          <div class="deploy-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/><circle cx="12" cy="12" r="3"/></svg>
+          </div>
+          <h3>Sync Environments</h3>
+          <p>Keep environment variables consistent across projects and share configuration with your team. On the roadmap for a future release.</p>
+        </div>
+        <div class="deploy-card deploy-card--soon">
+          <span class="status-badge status-badge--soon">Coming Soon</span>
           <div class="deploy-icon">
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="16 16 12 12 8 16"/><line x1="12" y1="12" x2="12" y2="21"/><path d="M20.39 18.39A5 5 0 0018 9h-1.26A8 8 0 103 16.3"/></svg>
           </div>
-          <h3>Sync &amp; Deploy</h3>
-          <p>Sync collections across devices and validate endpoints in staging before promoting to production.</p>
+          <h3>Cross-Device Sync</h3>
+          <p>Sync collections across devices and pick up where you left off on any machine. Coming in a future update.</p>
         </div>
         <div class="deploy-card">
           <div class="deploy-icon">

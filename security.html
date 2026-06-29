@@ -3,6 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self'; object-src 'none'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; upgrade-insecure-requests">
+  <meta name="referrer" content="strict-origin-when-cross-origin">
   <title>Security — HttpForge Security Policy</title>
   <meta name="description" content="HttpForge security policy. Learn how we protect your credentials, handle vulnerabilities, and maintain the security of our open-source API client.">
   <meta name="robots" content="index, follow">
@@ -86,6 +88,18 @@
           <li>Your contact information for follow-up</li>
         </ul>
         <p>We aim to acknowledge reports within 48 hours and provide a remediation timeline within 7 business days.</p>
+
+        <h2>Website Security Headers</h2>
+        <p>The httpforge.com website is configured with HTTP security headers to reduce XSS, clickjacking, and MIME-sniffing risks:</p>
+        <ul>
+          <li><strong>Content-Security-Policy</strong> — restricts scripts, styles, fonts, and images to trusted sources</li>
+          <li><strong>Strict-Transport-Security</strong> — enforces HTTPS for all future visits</li>
+          <li><strong>X-Frame-Options</strong> — prevents the site from being embedded in iframes</li>
+          <li><strong>X-Content-Type-Options</strong> — blocks MIME-type sniffing</li>
+          <li><strong>Referrer-Policy</strong> — limits referrer data sent to third parties</li>
+          <li><strong>Permissions-Policy</strong> — disables unused browser features (camera, microphone, geolocation, etc.)</li>
+        </ul>
+        <p>Headers are defined in the site <a href="https://github.com/httpforge/web/blob/main/_headers" target="_blank" rel="noopener noreferrer">_headers</a> file. CSP and Referrer-Policy meta tags provide additional protection on all pages.</p>
 
         <h2>Security Updates</h2>
         <p>Security patches are released as soon as fixes are verified. Critical vulnerabilities are communicated through GitHub releases and the project website.</p>

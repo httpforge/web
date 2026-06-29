@@ -420,6 +420,50 @@ img {
   line-height: 1.6;
 }
 
+.feature-card--planned,
+.feature-card--enterprise,
+.deploy-card--planned,
+.deploy-card--soon {
+  position: relative;
+  border-style: dashed;
+  background: var(--color-bg-subtle);
+}
+
+.feature-card a {
+  color: var(--color-accent);
+  font-weight: 500;
+}
+
+.feature-card a:hover {
+  text-decoration: underline;
+}
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 999px;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+}
+
+.status-badge--soon {
+  background: #ffedd5;
+  color: #c2410c;
+}
+
+.status-badge--planned {
+  background: #dbeafe;
+  color: #1d4ed8;
+}
+
+.status-badge--enterprise {
+  background: #ede9fe;
+  color: #6d28d9;
+}
+
 /* ── Product Showcase ── */
 .product-showcase {
   display: grid;
@@ -538,13 +582,15 @@ img {
 /* ── Deploy Section ── */
 .deploy-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
   gap: 32px;
 }
 
 .deploy-card {
   text-align: center;
   padding: 32px 24px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
 }
 
 .deploy-icon {
