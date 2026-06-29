@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>API Reference — HttpForge Commands &amp; Syntax</title>
+  <meta name="description" content="HttpForge API reference for request syntax, environment variables, authentication methods, and VS Code extension commands.">
+  <meta name="keywords" content="HttpForge API reference, HTTP request syntax, environment variables, VS Code commands">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://httpforge.com/api-reference.html">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://httpforge.com/api-reference.html">
+  <meta property="og:title" content="API Reference — HttpForge Commands &amp; Syntax">
+  <meta property="og:description" content="Complete reference for HttpForge request syntax, variables, and extension commands.">
+  <meta property="og:image" content="https://httpforge.com/assets/fulllogo.png">
+  <meta property="og:site_name" content="HttpForge">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="API Reference — HttpForge Commands &amp; Syntax">
+  <meta name="twitter:description" content="Complete reference for HttpForge request syntax, variables, and extension commands.">
+  <meta name="twitter:image" content="https://httpforge.com/assets/fulllogo.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="icon" href="assets/logo.png" type="image/png">
+</head>
+<body>
+
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="logo">
+        <img class="logo-icon" src="assets/logo.png" alt="HttpForge — Modern API Client" width="54" height="54">
+      </a>
+      <nav class="nav" aria-label="Main navigation">
+        <ul class="nav-links" id="navLinks">
+          <li><a href="index.html#features">Features</a></li>
+          <li><a href="docs.html">Docs</a></li>
+          <li><a href="support.html">Support</a></li>
+        </ul>
+        <a href="https://github.com/httpforge" class="nav-github" target="_blank" rel="noopener noreferrer">
+          GitHub
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+        </a>
+        <button class="menu-toggle" id="menuToggle" aria-label="Toggle navigation menu">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="page-hero">
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Breadcrumb">
+          <a href="index.html">Home</a> / <span>API Reference</span>
+        </nav>
+        <h1>API Reference</h1>
+        <p>Complete reference for request syntax, environment variables, authentication, and VS Code extension commands.</p>
+      </div>
+    </section>
+
+    <section class="page-body">
+      <div class="container page-layout">
+        <aside class="page-sidebar" aria-label="Reference sections">
+          <nav>
+            <a href="#request-syntax">Request Syntax</a>
+            <a href="#variables">Variables</a>
+            <a href="#authentication">Authentication</a>
+            <a href="#vscode-commands">VS Code Commands</a>
+          </nav>
+        </aside>
+
+        <article class="prose">
+          <h2 id="request-syntax">Request Syntax</h2>
+          <p>HttpForge uses a plain-text format for defining HTTP requests. Each request begins with the method and URL on the first line, followed by optional headers and a body.</p>
+          <pre><code>### Get all users
+GET {{baseUrl}}/api/v1/users
+Authorization: Bearer {{token}}
+Accept: application/json
+
+### Create a user
+POST {{baseUrl}}/api/v1/users
+Content-Type: application/json
+
+{
+  "name": "Jane Developer",
+  "email": "jane@example.com"
+}</code></pre>
+          <p>Separate multiple requests in a single file using a line containing three hash characters (<code>###</code>) followed by a descriptive name.</p>
+
+          <h2 id="variables">Variables</h2>
+          <p>Reference environment variables using double curly braces: <code>{{variableName}}</code>. Variables are resolved at request time from the active environment.</p>
+          <pre><code>// Environment: Production
+{
+  "baseUrl": "https://api.example.com",
+  "token": "sk_live_..."
+}
+
+// Usage in a request
+GET {{baseUrl}}/v1/health</code></pre>
+          <p>Variable names are case-sensitive. Undefined variables produce a validation warning before the request is sent.</p>
+
+          <h2 id="authentication">Authentication</h2>
+          <h3>Bearer Token</h3>
+          <pre><code>Authorization: Bearer {{accessToken}}</code></pre>
+          <h3>Basic Authentication</h3>
+          <pre><code>Authorization: Basic {{base64Credentials}}</code></pre>
+          <h3>API Key</h3>
+          <pre><code>X-API-Key: {{apiKey}}</code></pre>
+          <p>HttpForge also supports OAuth 2.0 authorization code flow with automatic token refresh. Configure OAuth providers in <strong>Settings &gt; Authentication</strong>.</p>
+
+          <h2 id="vscode-commands">VS Code Commands</h2>
+          <p>The following commands are available in the VS Code Command Palette (<kbd>Ctrl+Shift+P</kbd>):</p>
+          <ul>
+            <li><strong>HttpForge: Send Request</strong> — Execute the request at the current cursor position.</li>
+            <li><strong>HttpForge: Send All Requests</strong> — Run every request in the active file sequentially.</li>
+            <li><strong>HttpForge: Switch Environment</strong> — Change the active environment for variable resolution.</li>
+            <li><strong>HttpForge: Open Collection</strong> — Browse and open saved request collections.</li>
+            <li><strong>HttpForge: New Request</strong> — Create a new request in the active editor.</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo">
+            <img class="logo-icon" src="assets/logo.png" alt="HttpForge logo" width="54" height="54">
+          </a>
+          <p>HttpForge is a modern Privacy First, open-source API client built for professional developers.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Product</h4>
+          <ul>
+            <li><a href="index.html#features">Features</a></li>
+            <li><a href="roadmap.html">Roadmap</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="docs.html">Documentation</a></li>
+            <li><a href="api-reference.html">API Reference</a></li>
+            <li><a href="blog.html">Blog</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <ul>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contributors.html">Contributors</a></li>
+            <li><a href="support.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Legal</h4>
+          <ul>
+            <li><a href="terms.html">Terms of Service</a></li>
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="security.html">Security</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 HttpForge. All rights reserved.</span>
+        <span>Built for developers worldwide</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/site.js"></script>
+</body>
+</html>
