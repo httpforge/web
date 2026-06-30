@@ -1,0 +1,10 @@
+# HttpForge
+
+> HttpForge is a privacy-first, open-source API client for Windows and VS Code.
+
+## Documentation
+- [Docs](https://httpforge.com/docs.html): Installation and usage guide
+- [API Reference](https://httpforge.com/api-reference.html): Request syntax and commands
+
+## Support
+- [Support](https://httpforge.com/support.html): FAQs and contact
