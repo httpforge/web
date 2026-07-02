@@ -1,4 +1,8 @@
+User-agent: Google-Extended
+Allow: /
+
 User-agent: *
 Allow: /
 
+# LLM index: https://httpforge.com/llms.txt
 Sitemap: https://httpforge.com/sitemap.xml
